@@ -27,29 +27,7 @@ pipeline {
                         if (env.BRANCH_NAME == "main") {
                             sh("./gradlew publish")
                         }
-
-                        sh("./gradlew --stop")
                     }
-                }
-            }
-        }
-
-        stage("Gradle: Publish") {
-            when {
-                environment name: 'BRANCH_NAME', value: 'main'
-            }
-
-            steps {
-                withGradle {
-                    sh("./gradlew publish")
-                }
-            }
-        }
-
-        stage("Gradle: Stop Daemon") {
-            steps {
-                withGradle {
-                    sh("./gradlew --stop")
                 }
             }
         }
