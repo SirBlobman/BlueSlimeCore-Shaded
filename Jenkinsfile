@@ -28,7 +28,7 @@ pipeline {
                             sh("./gradlew publish")
                         }
 
-                        sh("./gradlew stop")
+                        sh("./gradlew --stop")
                     }
                 }
             }
