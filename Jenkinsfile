@@ -33,11 +33,25 @@ pipeline {
                 }
             }
         }
-    }
 
-    post {
-        success {
-            archiveArtifacts artifacts: 'full/build/libs/BlueSlimeCore-NMS-full-*.jar', fingerprint: true
+        stage("Gradle: Publish") {
+            when {
+                environment name: 'BRANCH_NAME', value: 'main'
+            }
+
+            steps {
+                withGradle {
+                    sh("./gradlew publish")
+                }
+            }
+        }
+
+        stage("Gradle: Stop Daemon") {
+            steps {
+                withGradle {
+                    sh("./gradlew --stop")
+                }
+            }
         }
     }
 }

@@ -94,6 +94,8 @@ tasks {
 
     named<ShadowJar>("shadowJar") {
         archiveClassifier.set(null as String?)
+        archiveBaseName.set("shaded")
+
         val shadePrefix = "com.github.sirblobman.api.shaded"
         relocate("com.cryptomorin.xseries", "$shadePrefix.xseries")
         relocate("net.kyori.adventure", "$shadePrefix.adventure")
