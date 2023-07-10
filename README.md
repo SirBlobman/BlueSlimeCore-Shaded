@@ -20,3 +20,58 @@ Folia Helper is kept as-is (not relocated):
 
 This project is licensed with GPL-3.0.
 
+## Dependency Information
+
+<details>
+<summary>Maven</summary>
+
+**Repository:**
+```xml
+<repository>
+    <id>sirblobman-public</id>
+    <url>https://nexus.sirblobman.xyz/public/</url>
+</repository>
+```
+
+**Dependency:**
+```xml
+<dependency>
+    <groupId>com.github.sirblobman.api</groupId>
+    <artifactId>shaded</artifactId>
+    <version>3.0-SNAPSHOT</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+</details>
+<details>
+<summary>Gradle: Kotlin</summary>
+
+```kotlin
+repositories {
+    maven("https://nexus.sirblobman.xyz/public/")
+}
+
+dependencies {
+    compileOnly("com.github.sirblobman.api:shaded:3.0-SNAPSHOT")
+}
+```
+
+</details>
+<details>
+<summary>Gradle: Groovy</summary>
+
+```groovy
+repositories {
+    maven {
+        name = 'sirblobman-public'
+        url = 'https://nexus.sirblobman.xyz/public/'
+    }
+}
+
+dependencies {
+    compileOnly 'com.github.sirblobman.api:shaded:3.0-SNAPSHOT'
+}
+```
+
+</details>
